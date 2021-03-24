@@ -1,7 +1,7 @@
 ---
 # Configure firewall
 
-- name: Ensure ftp service is enabled
+- name: Ensure ftp is enabled in firewall
   firewalld:
     zone: "{{firewall_zone}}"
     service: ftp

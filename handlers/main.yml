@@ -3,7 +3,7 @@
 
 
 - name: restart pureftpd
-  service:
+  systemd:
     name: "{{pureftpd_service}}"
     state: restarted
 
