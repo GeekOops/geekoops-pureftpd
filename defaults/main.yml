@@ -5,7 +5,6 @@ config_firewall: false
 firewall_zone: "public"
 
 
-
 MaxClientsNumber: 10
 MaxClientsPerIP: 3
 AnonymousOnly: "yes"
