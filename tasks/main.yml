@@ -20,7 +20,7 @@
     group: root
     mode: 0744
   notify: restart pureftpd
-- name: Ensure PureFTPd service is enabled
+- name: Ensure PureFTPd service is started and enabled
   systemd:
     name: "{{pureftpd_service}}"
     state: started

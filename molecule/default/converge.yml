@@ -1,0 +1,25 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include geekoops-pureftpd"
+      include_role:
+        name: "geekoops-pureftpd"
+    ## Setup test enviroment
+    # Test file 1 is accessible (0754), test file 2 not (0750)
+    - name: Deploy test file
+      copy:
+        content: |
+          Happy test file
+        dest: "{{ftp_dir}}/testfile.txt"
+        group: "root"
+        owner: "root"
+        mode: 0754
+    - name: Deploy secrets test file
+      copy:
+        content: |
+          Password: 12345
+        dest: "{{ftp_dir}}/secrets.txt"
+        group: "root"
+        owner: "root"
+        mode: 0750
