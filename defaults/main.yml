@@ -8,8 +8,8 @@ firewall_zone: "public"
 MaxClientsNumber: 10
 MaxClientsPerIP: 3
 AnonymousOnly: "yes"
-PAMAuthentication: "no"
 NoAnonymous: "no"
+PAMAuthentication: "no"
 MaxIdleTime: "5"
 MaxLoad: "4"
 # PassivePortRange
