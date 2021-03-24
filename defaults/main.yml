@@ -1,0 +1,28 @@
+---
+# defaults file for geekoops-pureftpd
+
+config_firewall: false
+firewall_zone: "public"
+
+
+
+MaxClientsNumber: 10
+MaxClientsPerIP: 3
+AnonymousOnly: "yes"
+PAMAuthentication: "no"
+NoAnonymous: "no"
+MaxIdleTime: "5"
+MaxLoad: "4"
+# PassivePortRange
+PassivePortMin: 30000
+PassivePortMax: 30100
+ForcePassiveIP: ""
+# Bind Address,Port (e.g. 127.0.0.1,21)
+Bind: ""
+# Max Bandwidth for all users in KB/s
+Bandwidth: ""
+TrustedIP: ""
+MaxUserSessions: 3
+MaxAnonSessions: 20
+IPV4Only: "no"
+IPV6Only: "no"

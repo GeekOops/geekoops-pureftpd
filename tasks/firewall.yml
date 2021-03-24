@@ -1,0 +1,21 @@
+---
+# Configure firewall
+
+- name: Ensure ftp service is enabled
+  firewalld:
+    zone: "{{firewall_zone}}"
+    service: ftp
+    permanent: true
+    state: enabled
+  notify: reload firewalld
+  tags: ['ftp', 'firewall']
+
+- name: Enable passive ftp range
+  firewalld:
+    zone: "{{firewall_zone}}"
+    port: "{{PassivePortMin}}-{{PassivePortMax}}/tcp"
+    permanent: true
+    state: enabled
+  notify: reload firewalld
+  tags: ['ftp', 'firewall']
+  when: PassivePortMin > 0 and PassivePortMax > 0

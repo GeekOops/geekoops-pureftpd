@@ -1,0 +1,31 @@
+---
+# tasks file for geekoops-pureftpd
+
+# Distribution specific vars are ALWAYS needed, so don't forget the tags here
+- name: include distribution specific vars
+  include_vars: "{{ansible_distribution}}_{{ansible_distribution_version}}.yml"
+  tags: ['ftp']
+
+
+- name: Ensure PureFTPd is installed
+  package:
+    name: "{{ packages }}"
+    state: present
+  tags: ['ftp']
+- name: Configure PureFTPd
+  template:
+    src: pure-ftpd.conf.j2
+    dest: /etc/pure-ftpd/pure-ftpd.conf
+    owner: root
+    group: root
+    mode: 0744
+  notify: restart pureftpd
+- name: Ensure PureFTPd service is enabled
+  systemd:
+    name: "{{pureftpd_service}}"
+    state: started
+    enabled: true
+  tags: ['ftp', 'systemd']
+
+- include: firewall.yml
+  when: config_firewall == true

@@ -1,0 +1,4 @@
+---
+# vars file for geekoops-pureftpd
+
+pureftpd_service: "pure-ftpd"

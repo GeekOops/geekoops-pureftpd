@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Felix Niederwanger
+  description: Install and configure PureFTPd
+  company: SUSE
+  # issue_tracker_url: http://example.com/issue/tracker
+
+  license: MIT
+
+  min_ansible_version: 2.9
+
+  platforms:
+    - name: opensuse
+      versions:
+        - 15.2
+
+  galaxy_tags: ['ftp']
+
+dependencies: []

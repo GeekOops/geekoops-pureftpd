@@ -1,0 +1,11 @@
+---
+# handlers file for geekoops-pureftpd
+
+
+- name: restart pureftpd
+  service:
+    name: "{{pureftpd_service}}"
+    state: restarted
+
+- name: reload firewalld
+  shell: firewall-cmd --reload
