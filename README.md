@@ -1,3 +1,5 @@
+[![Test deployment](https://github.com/GeekOops/geekoops-pureftpd/actions/workflows/CI.yml/badge.svg)](https://github.com/GeekOops/geekoops-pureftpd/actions/workflows/CI.yml)
+
 # geekoops-pureftpd
 
 Install and configure the secure `PureFTPd` server.
