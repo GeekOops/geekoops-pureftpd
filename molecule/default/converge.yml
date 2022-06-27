@@ -6,6 +6,11 @@
       include_role:
         name: "geekoops-pureftpd"
     ## Setup test enviroment
+    - name: Enable firewall
+      systemd:
+        name: firewalld
+        state: started
+        enabled: true
     # Test file 1 is accessible (0754), test file 2 not (0750)
     - name: Deploy test file
       copy:
