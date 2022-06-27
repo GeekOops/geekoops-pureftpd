@@ -20,6 +20,7 @@
     group: root
     mode: 0744
   notify: restart pureftpd
+  tags: ['ftp']
 - name: Ensure PureFTPd service is started and enabled
   systemd:
     name: "{{pureftpd_service}}"
@@ -27,5 +28,5 @@
     enabled: true
   tags: ['ftp', 'systemd']
 
-- include: firewall.yml
+- include_tasks: firewall.yml
   when: config_firewall == true
