@@ -8,10 +8,10 @@ import os
 testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(os.environ['MOLECULE_INVENTORY_FILE']).get_hosts('all')
  
 def test_ftp(host):
-	cmd = host.run("curl -v ftp://127.0.0.1/testfile.txt")
+	cmd = host.run("curl -v --fail ftp://127.0.0.1/testfile.txt")
 	assert cmd.succeeded
 	assert "Happy test file" in cmd.stdout
-	cmd = host.run("curl -v ftp://127.0.0.1/secrets.txt")
+	cmd = host.run("curl -v --fail ftp://127.0.0.1/secrets.txt")
 	assert cmd.failed
 	assert "550" in cmd.stderr
 
